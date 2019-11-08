@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-    def self.avliable 
+    def self.available 
         where(black_player_id: nil)
     end 
 end
