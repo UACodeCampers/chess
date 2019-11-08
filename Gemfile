@@ -68,12 +68,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 gem 'devise'
-<<<<<<< HEAD
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem "factory_bot_rails"
 end
-=======
 gem 'simple_form'
 gem 'rubocop', require: false
->>>>>>> 7a55c560695b173dadfd84bb81e00871589ea936
+
