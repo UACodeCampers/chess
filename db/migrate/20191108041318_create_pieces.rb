@@ -7,8 +7,7 @@ class CreatePieces < ActiveRecord::Migration[5.2]
       t.string :color 
       t.integer :game_id 
       t.boolean :captured? 
-      t.datetime :created_at 
-      t.datetime :updated_at 
+   
       t.timestamps
     end
   end
