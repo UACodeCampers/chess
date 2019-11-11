@@ -4,8 +4,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :white_player_id
       t.integer :black_player_id 
-      t.datetime :created_at 
-      t.datetime :updated_at 
+  
       t.timestamps
     end
   end
