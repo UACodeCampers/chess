@@ -10,17 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2019_11_10_225942) do
-=======
-ActiveRecord::Schema.define(version: 2019_11_05_222117) do
->>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-<<<<<<< Updated upstream
     t.string "name"
     t.integer "white_player_id"
     t.integer "black_player_id"
@@ -35,11 +30,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_222117) do
     t.string "color"
     t.integer "game_id"
     t.boolean "captured?"
-=======
->>>>>>> Stashed changes
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

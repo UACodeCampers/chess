@@ -2,11 +2,11 @@ class GamesController < ApplicationController
   helper_method :game
 
   def index
+     @available_game = Game.available.order("created_at DESC")
   end
 
   def new
     @game = Game.new
-
   end
 
   def create
@@ -17,7 +17,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.where
-    unless game.present? return redirect_to root 
   end
 
 private 
