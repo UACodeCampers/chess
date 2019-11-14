@@ -20,6 +20,4 @@ RSpec.describe GamesController, type: :controller do
       game = FactoryBot.create(:game)
     end
   end
-
 end
-
