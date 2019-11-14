@@ -10,8 +10,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(game_params)
-    redirect_to game_path(@game)
+  # @game = Game.create(game_params)
     end
   end
 
@@ -19,12 +18,12 @@ class GamesController < ApplicationController
     @game = Game.where
   end
 
-private 
+#private 
 
-def game
-  @game || Game.where(id: params[:id]).last
-end
+#def game
+# @game || Game.where(id: params[:id]).last
+#end
 
-def game_params
-  game_params.require(:game).permit(:name, :white_player_id, :black_player_id)
-end
+#def game_params
+#  game_params.require(:game).permit(:name, :white_player_id, :black_player_id)
+#end
