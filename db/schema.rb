@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 2019_11_10_225942) do
     t.string "color"
     t.integer "game_id"
     t.boolean "captured?"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
