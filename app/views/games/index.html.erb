@@ -1,4 +1,9 @@
 <h1 style='text-align: center'>Insert chess app here</h1>
 <%  @available_game.each do |game| %>
 <h1 style='text-align: center'><%= game.name %></h1>
-<% end %> 
+
+    <%= simple_form_for game do |f| %>
+			<%= f.input :user, as: :hidden, input_html: { value: current_user } %>
+			<%= f.button :submit, "Join" %>
+    <% end %>
+<% end %>

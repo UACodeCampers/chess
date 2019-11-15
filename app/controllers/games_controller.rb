@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   helper_method :game
+  before_action :authenticate_user!
 
   def index
      @available_game = Game.available.order("created_at DESC")
@@ -7,6 +8,13 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    @game.black_player_id = current_user.id
+    @game.save
+    redirect_to game_path(@game)
   end
 
   def create
