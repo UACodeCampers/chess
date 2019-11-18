@@ -73,6 +73,7 @@ gem 'devise'
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem "factory_bot_rails"
+  gem 'faker'
 end
 gem 'simple_form'
 gem 'rubocop', require: false
