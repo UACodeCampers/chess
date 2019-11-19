@@ -3,7 +3,8 @@ class GamesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-     @available_game = Game.available.order("created_at DESC")
+    @available_games = Game.available.order("created_at DESC")
+
   end
 
   def new

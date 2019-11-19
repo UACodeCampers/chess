@@ -1,9 +1,34 @@
 <h1 style='text-align: center'>Insert chess app here</h1>
-<%  @available_game.each do |game| %>
-<h1 style='text-align: center'><%= game.name %></h1>
 
-    <%= simple_form_for game do |f| %>
-			<%= f.input :user, as: :hidden, input_html: { value: current_user } %>
-			<%= f.button :submit, "Join" %>
+
+
+<br>
+<h2>List of Available Games</h2>
+<br>
+<section class='open-games'>
+  <% if @available_games.present? %>
+    <h4>Open games</h4>
+  <% end %>
+  <br>
+
+      <% @available_games.each do |game| %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="game text-center">
+        <p>
+          #list available games and 
+          #display the users email
+          #button to join
+          
+          <% black_player = User.find_by(id: game.black_player_id) %>
+          <%= black_player.email %>
+          <%= simple_form_for game, :method => :put do |f| %>
+            <%= f.input :white_player_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+            <%= f.submit 'Join Game' %>
+          <% end %>
+        </p>
+      </div>
+    </div>
     <% end %>
-<% end %>
+
+</section>
+
