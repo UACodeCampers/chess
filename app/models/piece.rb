@@ -1,7 +1,7 @@
 class Piece < ApplicationRecord
-  
+
   belongs_to :game
-  belongs_to :user
+  # belongs_to :user
 
   self.inheritance_column = :type
 
@@ -17,10 +17,13 @@ class Piece < ApplicationRecord
       y_position: new_y,
       color: color
     )
-      return Piece.where(x_position: new_x, y_position: new_y, color: color).update_attribute("captured?" => true)
+      # return "hello"
+      piece = Piece.where(x_position: new_x, y_position: new_y, color: color)
+      piece.update("captured?" => true)
+      # return self.update_attributes("x_position" => new_x, "y_position" => new_y)
     end
 
-    return self.update_attributes("x_position" => new_x, "y_position" => new_y)
+  return self.update("x_position" => new_x, "y_position" => new_y)
   end
 
   def invalid_move(new_x, new_y)
