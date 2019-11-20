@@ -17,10 +17,10 @@ class Piece < ApplicationRecord
       y_position: new_y,
       color: color
     )
-      # return "hello"
+
       piece = Piece.where(x_position: new_x, y_position: new_y, color: color)
       piece.update("captured?" => true)
-      # return self.update_attributes("x_position" => new_x, "y_position" => new_y)
+     
     end
 
   return self.update("x_position" => new_x, "y_position" => new_y)
