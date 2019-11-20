@@ -20,7 +20,7 @@
           #button to join
           
           <% black_player = User.find_by(id: game.black_player_id) %>
-          <%= black_player.email %>
+          User.find(game.black_player_id)&.email
           <%= simple_form_for game, :method => :put do |f| %>
             <%= f.input :white_player_id, :as => :hidden, :input_html => { :value => current_user.id } %>
             <%= f.submit 'Join Game' %>
