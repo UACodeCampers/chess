@@ -30,23 +30,23 @@ class Piece < ApplicationRecord
   def is_obstructed?(new_x, new_y) 
     if self.piece_type == "pawn"
     
-      return vertical_obstruction?(new_x, new_y) 
+      return self.vertical_obstruction?(new_x, new_y) 
     
     elsif self.piece_type == "bishop"
     
-      return diagonal_obstruction?(new_x, new_y) 
+      return self.diagonal_obstruction?(new_x, new_y) 
     
     elsif self.piece_type == "rook"
       
-      return horizontal_obstruction?(new_x, new_y) if self.x_position != new_x && self.y_position == new_y 
-      return vertical_obstruction?(new_x, new_y) if self.y_position != new_y && self.x_position == new_x
+      return self.horizontal_obstruction?(new_x, new_y) if self.x_position != new_x && self.y_position == new_y 
+      return self.vertical_obstruction?(new_x, new_y) if self.y_position != new_y && self.x_position == new_x
       return self.invalid_move(new_x, new_y)
     
     elsif self.piece_type == "queen" || self.piece_type == "king"  
       
-      return horizontal_obstruction?(new_x, new_y) if self.x_position != new_x && self.y_position == new_y 
-      return vertical_obstruction?(new_x, new_y) if self.y_position != new_y && self.x_position == new_x 
-      return diagonal_obstruction?(new_x, new_y) if (new_x - self.x_position).abs == (new_y - self.y_position).abs  
+      return self.horizontal_obstruction?(new_x, new_y) if self.x_position != new_x && self.y_position == new_y 
+      return self.vertical_obstruction?(new_x, new_y) if self.y_position != new_y && self.x_position == new_x 
+      return self.diagonal_obstruction?(new_x, new_y) if (new_x - self.x_position).abs == (new_y - self.y_position).abs  
       return self.invalid_move(new_x, new_y)
     
     end
@@ -88,13 +88,13 @@ class Piece < ApplicationRecord
   def horizontal_obstruction?(new_x, new_y)
     return self.invalid_move(new_x, new_y) if new_y != self.y_position # checks to see if the y_position changed and returns invalid if changed
     distance = (new_x - self.x_position).abs # finding distance of new x_position
-    return obstruction_query(distance, new_x, new_y)
+    return self.obstruction_query(distance, new_x, new_y)
   end
 
   def vertical_obstruction?(new_x, new_y)
     return self.invalid_move(new_x, new_y) if new_x != self.x_position # checks to see if the x_position changed and returns invalid if changed
     distance = (new_y - self.y_position).abs
-    return obstruction_query(distance, new_x, new_y)  
+    return self.obstruction_query(distance, new_x, new_y)  
   end
 
   def diagonal_obstruction?(new_x, new_y)
@@ -103,7 +103,7 @@ class Piece < ApplicationRecord
     distance = (new_x - self.x_position).abs # distance for iteration
     return self.invalid_move(new_x, new_y) if dist_x_diag != dist_y_diag # checks that distance is the same for both x_position and y_position
     # checks for direction of diagonal lines returns obstruction query and iteration
-    return obstruction_query(distance, new_x, new_y)
+    return self.obstruction_query(distance, new_x, new_y)
   end
 
 end
