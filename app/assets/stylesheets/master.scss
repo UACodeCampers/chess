@@ -1,5 +1,28 @@
 @import "bootstrap";
 
+// Commenting out because it's affecting all divs globally
+// div { 
+//     display: flex; 
+// }
+
+body {
+	background-image:url(checkered-lite.jpg);
+	background-size: 75%;
+}
+.booyah-box {
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 15px;
+	padding: 20px;
+	font-family: 'Calistoga', cursive;
+	font-weight: 200;
+}
+
 .bg-img {
 	background-image:url(nav-bg.png);
 	min-height: 180px;
