@@ -1,5 +1,63 @@
 @import "bootstrap";
 
-div { 
-    display: flex; 
+.bg-img {
+	background-image:url(nav-bg.png);
+	min-height: 180px;
+
+	/* Center and scale the image */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	/* Needed to position the navbar */
+	position: relative;
+}
+  
+/* Position the navbar container inside the image */
+.container {
+	position: absolute;
+	margin: 20px;
+	font-family: 'Calistoga', cursive;
+}
+
+/* The navbar */
+.topnav {
+	overflow: hidden;
+}
+
+ul {
+	list-style-type: none;
+}
+
+/* Navbar links */
+.topnav a {
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 14px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.topnav a:hover {
+	color: #42f5ce;
+}
+
+// .navbar-nav {
+// 	float: right;
+// }
+.nav-link {
+	float: right;
+	margin-right: auto;
+	color: white;
+}
+
+#logo {
+	float: left;
+	font-size: 60px;
+	// text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.footer {
+	text-align: center;
+	margin-top: auto;
 }
