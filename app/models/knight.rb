@@ -5,12 +5,12 @@ class Knight < Piece
         
         if (new_x - self.x_position).abs == 2
             return self.invalid_move(new_x, new_y) if (new_y - self.y_position).abs > 1
+            return true
         elsif (new_y - self.y_position).abs == 2
             return self.invalid_move(new_x, new_y) if (new_x - self.x_position).abs > 1
+            return true
         else 
-            return self.invalid_move(new_x, new_y) 
+            return self.invalid_move(new_x, new_y)
         end 
-        
-        return true
     end
 end

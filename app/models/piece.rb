@@ -12,17 +12,18 @@ class Piece < ApplicationRecord
       color = "black"
     end
 
+    # may need to be changed to account for being called in controller
     if Piece.exists?(
       x_position: new_x,
       y_position: new_y,
       color: color
     )
-
+      # may need to be changed to account for being called in controller
       piece = Piece.where(x_position: new_x, y_position: new_y, color: color)
       piece.update("captured?" => true)
      
     end
-
+  # may need to be changed to account for being called in controller  
   return self.update("x_position" => new_x, "y_position" => new_y)
   end
 
