@@ -1,9 +1,9 @@
 class Piece < ApplicationRecord
 
   belongs_to :game
-  # belongs_to :user
+  belongs_to :user
 
-  self.inheritance_column = :type
+  self.inheritance_column = 'piece_type'
 
   def move_to!(new_x, new_y)
     if self.color == "black"
