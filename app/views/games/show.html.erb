@@ -1,110 +1,17 @@
 <html>
-<style>
-
-table {
-  margin: 0 auto;
-  margin-top: 75px;
-  border: solid #5d1b03 4px;
-  background-image: url('/assets/light.jpeg');
-}
-
-table tr td {
-  width: 70px;
-  height: 70px;
-}
-
-table tr:nth-child(odd) td:nth-child(even) {
- background-image: url('/assets/dark.jpeg');
-}
-table tr:nth-child(even) td:nth-child(odd) {
-  background-image: url('/assets/dark.jpeg');
-}
-}
-</style>
-<thead>
-</thead>
 <body>
-<table>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
+   <div class="board">
+      <table>
+        <tbody>
+          <% (1..8).each do |y_coord| %>
+            <tr id =#{y}>
+              <% (1..8).each do |x_coord| %>
+                 <td id=#{y}#{x} data-x=#{x} data-y=#{y} data-piece-id='#{piece_id}'>
+                <% end %>
+                </td>
+              <% end %>
+            </tr>
+        </tbody>
+      </table>
+    </div>
 </body>
-</html>
