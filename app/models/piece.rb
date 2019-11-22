@@ -6,20 +6,16 @@ class Piece < ApplicationRecord
   self.inheritance_column = 'piece_type'
 
   def move_to!(new_x, new_y)
-    if self.color == "black"
-      color = "white"
-    elsif self.color == "white"
-      color = "black"
-    end
 
     # may need to be changed to account for being called in controller
     if Piece.exists?(
       x_position: new_x,
       y_position: new_y,
-      color: color
+      color: ['color = ?', 'black', 'color = ?', 'white']
     )
       # may need to be changed to account for being called in controller
-      piece = Piece.where(x_position: new_x, y_position: new_y, color: color)
+      piece = Piece.find_by(x_position: new_x, y_position: new_y)
+      return self.invalid_move(new_x, new_y) if piece.color == self.color
       piece.update("captured?" => true)
      
     end
@@ -32,21 +28,21 @@ class Piece < ApplicationRecord
   end 
 
   def is_obstructed?(new_x, new_y) 
-    if self.piece_type == "pawn"
+    if self.piece_type == "Pawn"
     
       return self.vertical_obstruction?(new_x, new_y) 
     
-    elsif self.piece_type == "bishop"
+    elsif self.piece_type == "Bishop"
     
       return self.diagonal_obstruction?(new_x, new_y) 
     
-    elsif self.piece_type == "rook"
+    elsif self.piece_type == "Rook"
       
       return self.horizontal_obstruction?(new_x, new_y) if self.x_position != new_x && self.y_position == new_y 
       return self.vertical_obstruction?(new_x, new_y) if self.y_position != new_y && self.x_position == new_x
       return self.invalid_move(new_x, new_y)
     
-    elsif self.piece_type == "queen" || self.piece_type == "king"  
+    elsif self.piece_type == "Queen" || self.piece_type == "King"  
       
       return self.horizontal_obstruction?(new_x, new_y) if self.x_position != new_x && self.y_position == new_y 
       return self.vertical_obstruction?(new_x, new_y) if self.y_position != new_y && self.x_position == new_x 
@@ -80,8 +76,11 @@ class Piece < ApplicationRecord
       if Piece.exists?(
         x_position: x_pos_query,
         y_position: y_pos_query,
-        color: self.color 
+        color: ['color = ?', 'black', 'color = ?', 'white']
       )
+
+        piece = Piece.find_by(x_position: x_pos_query, y_position: y_pos_query)
+        return false if piece.x_position == new_x && piece.y_position == new_y
         return true
       end
 
