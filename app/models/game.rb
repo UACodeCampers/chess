@@ -12,7 +12,7 @@ class Game < ApplicationRecord
   def populate_game!
       
   #WHITE PIECES
-    Pawn.create(1..8).each do |i| Pawn.create(game_id: id, starting_position_x: 'i', starting_position_y: 1, color: white, user_id: white_player_id piece_type: Pawn) end
+    Pawn.create(1..8).each do |i| Pawn.create(game_id: id, starting_position_x: 'i', starting_position_y: 1, color: white, user_id: white_player_id, piece_type: Pawn) end
     Rook.create(game_id: id, starting_position_x: 0, starting_position_y: 0, color: white, user_id: white_player_id, piece_type: Rook)
     Rook.create(game_id: id, starting_position_x: 0, starting_position_y: 7, color: white, user_id: white_player_id, piece_type: Rook)
     Knight.create(game_id: id, starting_position_x: 1, starting_position_y: 0, color: white, user_id: white_player_id, piece_type: Knight)
@@ -24,7 +24,7 @@ class Game < ApplicationRecord
   
 
 #BLACK PIECES
-    Pawn.create(1..8).each do |i| Pawn.create(game_id: id, starting_position_x: 'i', starting_position_y: 7, color: white, user_id: white_player_id piece_type: Pawn) end
+    Pawn.create(1..8).each do |i| Pawn.create(game_id: id, starting_position_x: 'i', starting_position_y: 7, color: white, user_id: white_player_id, piece_type: Pawn) end
     Rook.create(game_id: id, starting_position_x: 0, starting_position_y: 7, color: white, user_id: white_player_id, piece_type: Rook)
     Rook.create(game_id: id, starting_position_x: 7, starting_position_y: 7, color: white, user_id: white_player_id, piece_type: Rook)
     Knight.create(game_id: id, starting_position_x: 1, starting_position_y: 7, color: white, user_id: white_player_id, piece_type: Knight)
