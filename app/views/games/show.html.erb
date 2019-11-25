@@ -14,6 +14,28 @@
         </tbody>
       </table>
     </div>
+    <script>
+   
+//          <td class="droppable" data-x-coord="1" data-y-coord="8"><div id="1" class="piece rook" data-name="rook">&#9820;</div></td>
+//          <td class="droppable" data-x-coord="2" data-y-coord="8"><div id="2" class="piece knight" data-name="knight">&#9822;</div></td>
+//          <td class="droppable" data-x-coord="3" data-y-coord="8"><div id="3" class="piece bishop" data-name="bishop">&#9821;</div></td>
+//          <td class="droppable" data-x-coord="4" data-y-coord="8"><div id="4" class="piece queen" data-name="queen" data-x="1" data-y="1">&#9819;</div></td>
+//          <td class="droppable" data-x-coord="5" data-y-coord="8"><div id="5" class="piece king" data-name="king" data-x="1" data-y="1">&#9818;</div></td>
+//          <td class="droppable" data-x-coord="6" data-y-coord="8"><div id="6" class="piece bishop" data-name="bishop" data-x="1" data-y="1">&#9821;</div></td>
+//          <td class="droppable" data-x-coord="7" data-y-coord="8"><div id="7" class="piece knight" data-name="knight" data-x="1" data-y="1">&#9822;</div></td>
+//          <td class="droppable" data-x-coord="8" data-y-coord="8"><div id="8" class="piece rook" data-name="rook" data-x="1" data-y="1">&#9820;</div></td>
+
+    $('td').droppable();
+    $('.piece').draggable({
+        containment: "table",
+        stop: (e, ui) => {
+            var xPos = $(this).html();
+            var yPos = $(this).data("y-coord");
+            var yPosit = $(e.target).attr("data-y-coord");
+            console.log(xPos);
+        }
+      });
+
+    </script>
   </body>
 </html>
-
