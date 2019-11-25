@@ -4,6 +4,12 @@ class Piece < ApplicationRecord
   belongs_to :user
 
   self.inheritance_column = 'piece_type'
+  
+  attr_reader :captured
+
+  def occupied?(x, y)
+    game.pieces.where(x_coordinates: x, y_coordinates: y).present?
+  end
 
   def move_to!(new_x, new_y)
 
@@ -107,6 +113,21 @@ class Piece < ApplicationRecord
     return self.invalid_move(new_x, new_y) if dist_x_diag != dist_y_diag # checks that distance is the same for both x_position and y_position
     # checks for direction of diagonal lines returns obstruction query and iteration
     return self.obstruction_query(distance, new_x, new_y)
+  end
+
+   def move_to!(new_x, new_y)
+    @game = game
+    if occupied?(new_x, new_y)
+      @piece_at_destination = @game.pieces.find_by(x_coordinates: new_x, y_coordinates: new_y)
+      if color == @piece_at_destination.color
+        fail 'destination occupied by piece of same color'
+      else
+        @piece_at_destination.update_attributes(x_coordinates: nil, y_coordinates: nil, status: 'captured')
+        @status = @piece_at_destination.status
+        @captured = true
+      end
+    else @captured = false
+    end
   end
 
 end
