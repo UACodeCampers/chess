@@ -6,7 +6,8 @@
           <% (1..8).each do |y_coord| %>
             <tr id =#{y}>
               <% (1..8).each do |x_coord| %>
-                 <td id=#{y}#{x} data-x=#{x} data-y=#{y} data-piece-id='#{piece_id}'>
+                <td data-y="<%= y_coord %>" data-x="<%= x_coord %>">
+<!--                  <td id=#{y}#{x} data-x=#{x} data-y=#{y} data-piece-id='#{piece_id}'> -->
                 <% end %>
                 </td>
               <% end %>

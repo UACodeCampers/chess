@@ -4,7 +4,6 @@ class GamesController < ApplicationController
 
   def index
     @available_games = Game.available.order("created_at DESC")
-
   end
 
   def new
@@ -19,20 +18,21 @@ class GamesController < ApplicationController
   end
 
   def create
-  # @game = Game.create(game_params)
-    end
+    @game = Game.create(game_params)
+    game.populate_game
   end
 
   def show
     @game = Game.where
   end
 
-#private 
+private 
 
-#def game
-# @game || Game.where(id: params[:id]).last
-#end
+  def game
+    @game || Game.where(id: params[:id]).last
+  end
 
-#def game_params
-#  game_params.require(:game).permit(:name, :white_player_id, :black_player_id)
-#end
+  def game_params
+    game_params.require(:game).permit(:name, :white_player_id, :black_player_id)
+  end
+end

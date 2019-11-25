@@ -13,3 +13,32 @@ User.create(id: 1739, email: "richardtracy@yahoo.com")
 User.create(id: 4862, email: "leilabenson@msn.com")
 User.create(id: 2489, email: "bernunit@gmail.com")
 User.create(id: 7935, email: "franklee@comcast.com")
+
+
+player_one = User.create(
+  email: "player_one@example.com", 
+  name: "Barbera", 
+  password: "password",
+  encrypted_password: "password"
+)
+
+player_two = User.create(
+  email: "player_two@example.com", 
+  name: "Millie", 
+  password: "password",
+  encrypted_password: "password"
+)
+
+game_one = Game.create(
+  name: "First game",
+  white_player_id: player_one.id,
+  black_player_id: player_two.id
+)
+
+black_rook = Piece.create(
+  game_id = game_one.id,
+  x_position = 1,
+  y_position = 1,
+  piece_type = "Rook",
+  piece_color = "black"
+)
