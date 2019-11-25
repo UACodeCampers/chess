@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @available_games = Game.available.order("created_at DESC")
+    @available_games = Game.available
 
   end
 
@@ -19,12 +19,16 @@ class GamesController < ApplicationController
   end
 
   def create
-  # @game = Game.create(game_params)
+  
+  @game = current_user.games.create(white_player_id: current_user.id, name: game_params["name"])
+  @game.save
+
+  redirect_to game_path(@game)
     end
-  end
+  
 
   def show
-    @game = Game.where
+    @game = Game.find(params[:id])
   end
 
 #private 
@@ -33,6 +37,7 @@ class GamesController < ApplicationController
 # @game || Game.where(id: params[:id]).last
 #end
 
-#def game_params
-#  game_params.require(:game).permit(:name, :white_player_id, :black_player_id)
-#end
+def game_params
+  params.require(:game).permit(:name)
+end
+end
