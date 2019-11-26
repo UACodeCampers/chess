@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 2019_11_18_211747) do
   create_table "pieces", force: :cascade do |t|
     t.integer "x_position"
     t.integer "y_position"
-    t.integer "starting_position_x"
-    t.integer "starting_position_y"
     t.string "piece_type"
     t.string "color"
     t.integer "game_id"
