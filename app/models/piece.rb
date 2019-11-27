@@ -22,12 +22,12 @@ class Piece < ApplicationRecord
     )
       # may need to be changed to account for being called in controller
       piece = Piece.find_by(x_position: new_x, y_position: new_y)
-      return self.invalid_move(new_x, new_y) if piece.color == self.color
+      return nil if piece.color == self.color
       piece.update("captured?" => true)
      
     end
   # may need to be changed to account for being called in controller  
-  return self.update("x_position" => new_x, "y_position" => new_y)
+    return self.update("x_position" => new_x, "y_position" => new_y)
   end
 
   def invalid_move(new_x, new_y)
