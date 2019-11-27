@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_175508) do
     t.boolean "captured?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "html_code"
   end
 
   create_table "users", force: :cascade do |t|
