@@ -11,10 +11,11 @@ class Piece < ApplicationRecord
     if Piece.exists?(
       x_position: new_x,
       y_position: new_y,
+      game_id: self.game_id,
       color: ['color = ?', 'black', 'color = ?', 'white']
     )
       # may need to be changed to account for being called in controller
-      piece = Piece.find_by(x_position: new_x, y_position: new_y)
+      piece = Piece.find_by(x_position: new_x, y_position: new_y, game_id: self.id)
       return self.invalid_move(new_x, new_y) if piece.color == self.color
       piece.update("captured?" => true)
      
@@ -76,10 +77,11 @@ class Piece < ApplicationRecord
       if Piece.exists?(
         x_position: x_pos_query,
         y_position: y_pos_query,
+        game_id: self.game_id,
         color: ['color = ?', 'black', 'color = ?', 'white']
       )
 
-        piece = Piece.find_by(x_position: x_pos_query, y_position: y_pos_query)
+        piece = Piece.find_by(x_position: x_pos_query, y_position: y_pos_query, game_id: self.game_id)
         return false if piece.x_position == new_x && piece.y_position == new_y
         return true
       end
