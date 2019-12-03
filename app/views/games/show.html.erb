@@ -1,19 +1,110 @@
 <html>
-  <body>
-    <div class="board">
-      <table>
-        <tbody>
-          <%  8.downto(1) do |y_coord| %>
-            <tr id = "<%= y_coord %>">
-              <% (1..8).each do |x_coord| %>
-                  <td class="droppable" id = "<%= y_coord%>, <%= x_coord %>" data-x="<%= x_coord %>" data-y="<%= y_coord %>">
-                </td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </body>
-</html>
+<style>
 
+table {
+  margin: 0 auto;
+  margin-top: 75px;
+  border: solid #5d1b03 4px;
+  background-image: url('/assets/light.jpeg');
+}
+
+table tr td {
+  width: 70px;
+  height: 70px;
+}
+
+table tr:nth-child(odd) td:nth-child(even) {
+ background-image: url('/assets/dark.jpeg');
+}
+table tr:nth-child(even) td:nth-child(odd) {
+  background-image: url('/assets/dark.jpeg');
+}
+}
+</style>
+<thead>
+</thead>
+<body>
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>
