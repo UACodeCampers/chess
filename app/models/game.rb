@@ -7,3 +7,12 @@ class Game < ApplicationRecord
         where(black_player_id: nil).or(where(white_player_id: nil))
     end 
 end
+
+  
+  def contains_piece?(x_coord, y_coord)
+    if pieces.where("(starting_position_x = ? AND starting_position_y = ?)", x_coord, y_coord).any?
+      return true
+    else
+      return false
+    end
+  end
