@@ -1,5 +1,23 @@
 @import "bootstrap";
 
+body {
+	background-image:url(checkered-lite.jpg);
+	background-size: 75%;
+}
+.booyah-box {
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 15px;
+	padding: 20px;
+	font-family: 'Calistoga', cursive;
+	font-weight: 200;
+}
+
 .header {
 	background-image:url(nav-bg.png);
 	min-height: 180px;
@@ -13,42 +31,42 @@
 	position: relative;
 	display: flex;
 	font-family: 'Calistoga', cursive;
-	justify-content: space-between;
-	align-items: center;
+	justify-content: space-around;
 }
   
 ul {
 	list-style-type: none;
 }
 
-.nav-links a {
+/* Navbar links */
+.topnav a {
 	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 14px;
 	text-decoration: none;
+	font-size: 20px;
 }
 
-.logo {
-	float: left;
-	font-size: 60px;
-	color: #f2f2f2;
-	text-decoration: none;
+.topnav a:hover {
+	color: #42f5ce;
 }
 
-#alsoLogo {
-	text-decoration: none;
-	color: #f2f2f2;
-}
-
+// .navbar-nav {
+// 	float: right;
+// }
 .nav-link {
 	float: right;
 	margin-right: auto;
 	color: white;
-	font-size: 20px;
+}
+
+#logo {
+	float: left;
+	font-size: 60px;
+	// text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
 	text-align: center;
 	margin-top: auto;
 }

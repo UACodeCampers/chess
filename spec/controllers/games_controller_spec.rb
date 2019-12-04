@@ -23,7 +23,6 @@ RSpec.describe GamesController, type: :controller do
       game = FactoryBot.create(:game)
     end
   end
-end
 
   describe "games#update action" do
     it "should add current user's id as black_player_id" do
