@@ -1,245 +1,24 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 <html>
-<style>
-
-table {
-  margin: 0 auto;
-  margin-top: 75px;
-  border: solid #5d1b03 4px;
-  background-image: url('/assets/light.jpeg');
-}
-
-table tr td {
-  width: 70px;
-  height: 70px;
-  font-size: 56px;
-  text-align: center;
-}
-
-table tr:nth-child(odd) td:nth-child(even) {
- background-image: url('/assets/dark.jpeg');
-}
-table tr:nth-child(even) td:nth-child(odd) {
-  background-image: url('/assets/dark.jpeg');
-}
-}
-</style>
-<thead>
-</thead>
-<body>
-<table>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="8"><div id="1" class="piece rook" data-name="rook">&#9820;</div></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="8"><div id="2" class="piece knight" data-name="knight">&#9822;</div></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="8"><div id="3" class="piece bishop" data-name="bishop">&#9821;</div></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="8"><div id="4" class="piece queen" data-name="queen" data-x="1" data-y="1">&#9819;</div></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="8"><div id="5" class="piece king" data-name="king" data-x="1" data-y="1">&#9818;</div></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="8"><div id="6" class="piece bishop" data-name="bishop" data-x="1" data-y="1">&#9821;</div></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="8"><div id="7" class="piece knight" data-name="knight" data-x="1" data-y="1">&#9822;</div></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="8"><div id="8" class="piece rook" data-name="rook" data-x="1" data-y="1">&#9820;</div></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="7"><div id="9" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="7"><div id="10" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="7"><div id="11" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="7"><div id="12" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="7"><div id="13" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="7"><div id="14" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="7"><div id="15" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="7"><div id="16" class="piece pawn">&#9823;</div></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="6"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="5"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="4"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="3"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="2"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-id="1" data-x-coord="1" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="1"></td>
-    </tr>
-</table>
-
-<script>
-   
-    $('td').droppable();
-    $('.piece').draggable({
-        containment: "table",
-        stop: (e, ui) => {
-            var xPos = $(this).parent().data("x-coord");
-            var yPos = $(this).data("y-coord");
-            var yPosit = $(e.target).attr("data-y-coord");
-            console.log(xPos);
-        }
-      });
-
-</script>
-</body>
+  <body>
+    <div class="board">
+      <table>
+        <tbody>
+          <%  8.downto(1) do |y_coord| %>
+            <tr id = "<%= y_coord %>">
+              <% (1..8).each do |x_coord| %>
+                  <td class="droppable" id = "<%= y_coord%>, <%= x_coord %>" data-x="<%= x_coord %>" data-y="<%= y_coord %>">
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
->>>>>>> Still working on jQuery
-=======
-<html>
-<style>
 
-table {
-  margin: 0 auto;
-  margin-top: 75px;
-  border: solid #5d1b03 4px;
-  background-image: url('/assets/light.jpeg');
-}
 
-table tr td {
-  width: 70px;
-  height: 70px;
-  font-size: 56px;
-  text-align: center;
-}
-
-table tr:nth-child(odd) td:nth-child(even) {
- background-image: url('/assets/dark.jpeg');
-}
-table tr:nth-child(even) td:nth-child(odd) {
-  background-image: url('/assets/dark.jpeg');
-}
-}
-</style>
-<thead>
-</thead>
-<body>
-<table>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="8"><div id="1" class="piece" data-piece-id="1" >&#9820;</div></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="8"><div id="2" class="piece" data-piece-id= >&#9822;</div></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="8"><div id="3" class="piece" data-piece-id= >&#9821;</div></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="8"><div id="4" class="piece" data-piece-id= >&#9819;</div></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="8"><div id="5" class="piece" data-piece-id= >&#9818;</div></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="8"><div id="6" class="piece" data-piece-id= >&#9821;</div></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="8"><div id="7" class="piece" data-piece-id= >&#9822;</div></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="8"><div id="8" class="piece" data-piece-id= >&#9820;</div></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="7"><div id="9" class="piece pawn"></div></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="7"><div id="10" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="7"><div id="11" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="7"><div id="12" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="7"><div id="13" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="7"><div id="14" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="7"><div id="15" class="piece pawn">&#9823;</div></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="7"><div id="16" class="piece pawn">&#9823;</div></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="6"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="6"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="5"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="5"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="4"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="4"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="3"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="3"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="2"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="2"></td>
-    </tr>
-    <tr>
-        <td class="droppable" data-x-coord="1" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="2" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="3" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="4" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="5" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="6" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="7" data-y-coord="1"></td>
-        <td class="droppable" data-x-coord="8" data-y-coord="1"></td>
-    </tr>
-</table>
+// <td class="droppable" data-x-coord="4" data-y-coord="8"><div id="4" class="piece queen" data-name="queen" data-x="1" data-y="1">&#9819;</div></td>
 
 <script>
 
@@ -282,6 +61,3 @@ table tr:nth-child(even) td:nth-child(odd) {
     });
 
 </script>
-</body>
-</html>
->>>>>>> Working in several places at once
