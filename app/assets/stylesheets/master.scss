@@ -13,42 +13,42 @@
 	position: relative;
 	display: flex;
 	font-family: 'Calistoga', cursive;
-	justify-content: space-around;
+	justify-content: space-between;
+	align-items: center;
 }
   
 ul {
 	list-style-type: none;
 }
 
-/* Navbar links */
-.topnav a {
+.nav-links a {
 	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 14px;
 	text-decoration: none;
-	font-size: 20px;
 }
 
-.topnav a:hover {
-	color: #42f5ce;
+.logo {
+	float: left;
+	font-size: 60px;
+	color: #f2f2f2;
+	text-decoration: none;
 }
 
-// .navbar-nav {
-// 	float: right;
-// }
+#alsoLogo {
+	text-decoration: none;
+	color: #f2f2f2;
+}
+
 .nav-link {
 	float: right;
 	margin-right: auto;
 	color: white;
-}
-
-#logo {
-	float: left;
-	font-size: 60px;
-	// text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-size: 20px;
 }
 
 .footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	text-align: center;
 	margin-top: auto;
 }
