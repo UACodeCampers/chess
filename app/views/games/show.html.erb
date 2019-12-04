@@ -7,6 +7,7 @@
             <tr id = "<%= y_coord %>">
               <% (1..8).each do |x_coord| %>
                   <td class="droppable" id = "<%= y_coord%>, <%= x_coord %>" data-x="<%= x_coord %>" data-y="<%= y_coord %>">
+                    <div class="piece">&#9823;</div>
                 </td>
               <% end %>
             </tr>
@@ -47,8 +48,8 @@
                     data: { id: update_piece.id, x_position: update_piece.x_coord, y_position: update_piece.y_coord },
                     success: function(data) {
                         if (data.success) {
-                            //reset style position relative, left, top
-                            //query to move the div the piece is in    
+                            //will need to reset piece position (relative, left, top)
+                            //query to move the div the piece is in
                             piece.detach().appendTo(destination_square.parent());
                             console.log(data);
                         } else {
