@@ -1,7 +1,7 @@
 class PiecesController < ApplicationController
     before_action :authenticate_user!
     def update
-        piece = Piece.find(params[:id]).transmogrify
+        piece = Piece.find(params[:id])
         x = params[:x_position]
         y = params[:y_position]
         begin 

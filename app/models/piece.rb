@@ -132,23 +132,4 @@ class Piece < ApplicationRecord
     end
   end
 
-  def transmogrify
-    case self.piece_type 
-    when "Pawn"
-      return Pawn.find(self.id)
-    when "Rook"
-      return Rook.find(self.id)
-    when "Bishop"
-      return Bishop.find(self.id)
-    when "Knight"
-      return Knight.find(self.id)
-    when "Queen"
-      return Queen.find(self.id)
-    when "King"
-      return King.find(self.id)
-    else
-      fail "Piece had no type"
-    end
-  end
-
 end
