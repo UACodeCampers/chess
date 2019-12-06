@@ -3,10 +3,16 @@
     <div class="board">
       <table>
         <tbody>
-          <%  8.downto(1) do |y_coord| %>
+          <% 8.downto(1) do |y_coord| %>
             <tr id = "<%= y_coord %>">
               <% (1..8).each do |x_coord| %>
-                  <td class="droppable" id = "<%= y_coord%>, <%= x_coord %>" data-x="<%= x_coord %>" data-y="<%= y_coord %>">
+                <td class="droppable" id = "<%= y_coord %>, <%= x_coord %>" data-x="<%= x_coord %>" data-y="<%= y_coord %>">
+                  <% piece = @pieces.where("(starting_position_x = ? AND starting_position_y = ?)", x_coord, y_coord).first %>
+                    <% if piece.present? %>
+                      <div class="piece" data-piece-id="<%= piece.id %>" data-x_coord="<%= x_coord %>" data-y_coord="<%= y_coord %>">
+                        <%= piece.display.html_safe %>
+                      </div>
+                    <% end %>
                 </td>
               <% end %>
             </tr>
@@ -16,4 +22,3 @@
     </div>
   </body>
 </html>
-

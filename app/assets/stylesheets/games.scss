@@ -4,7 +4,7 @@
 
 table {
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 70px;
   border: solid #5d1b03 4px;
   background-image: url('/assets/light.jpeg');
 }
@@ -19,5 +19,11 @@ table tr:nth-child(odd) td:nth-child(even) {
 }
 table tr:nth-child(even) td:nth-child(odd) {
   background-image: url('/assets/dark.jpeg');
+}
+
+.piece {
+  font-size: 50px;
+  font-family: monotype, monotype;
+  text-align: center;
 }
 
