@@ -5,23 +5,23 @@ class Piece < ApplicationRecord
 
   self.inheritance_column = 'piece_type'
 
-  def move_to!(new_x, new_y)
+  # def move_to!(new_x, new_y)
 
-    if Piece.exists?(
-      x_position: new_x,
-      y_position: new_y,
-      game_id: self.game_id,
-      color: ['color = ?', 'black', 'color = ?', 'white']
-    )
+  #   if Piece.exists?(
+  #     x_position: new_x,
+  #     y_position: new_y,
+  #     game_id: self.game_id,
+  #     color: ['color = ?', 'black', 'color = ?', 'white']
+  #   )
      
-      piece = Piece.find_by(x_position: new_x, y_position: new_y, game_id: self.id)
-      return self.invalid_move(new_x, new_y) if piece.color == self.color
-      piece.update("captured?" => true)
+  #     piece = Piece.find_by(x_position: new_x, y_position: new_y, game_id: self.id)
+  #     return self.invalid_move(new_x, new_y) if piece.color == self.color
+  #     piece.update("captured?" => true)
      
-    end
+  #   end
 
-  return self.update("x_position" => new_x, "y_position" => new_y)
-  end
+  # return self.update("x_position" => new_x, "y_position" => new_y)
+  # end
 
   def invalid_move(new_x, new_y)
    raise ArgumentError.new("#{self.piece_type} can't move to (#{new_x}, #{new_y})")
