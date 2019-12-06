@@ -9,4 +9,12 @@ class King < Piece
         # if distance is valid checks if king is obstructed
         return self.is_obstructed?(new_x, new_y)
     end    
+
+    def display
+        if self.color == "black"
+            return "&#x265A;"
+        else 
+            return "&#x2654;" 
+        end
+    end
 end

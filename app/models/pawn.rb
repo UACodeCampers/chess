@@ -15,4 +15,12 @@ class Pawn < Piece
             return self.is_obstructed?(new_x, new_y)
         end 
     end
+
+    def display
+        if self.color == "black"
+            return "&#x265F;"
+        else 
+            return "&#x2659;" 
+        end
+    end
 end

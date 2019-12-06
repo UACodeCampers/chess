@@ -10,10 +10,9 @@
                   <% piece = @pieces.where("(starting_position_x = ? AND starting_position_y = ?)", x_coord, y_coord).first %>
                     <% if piece.present? %>
                       <div class="piece" data-piece-id="<%= piece.id %>" data-x_coord="<%= x_coord %>" data-y_coord="<%= y_coord %>">
-                        <%= piece.piece_type %>
+                        <%= piece.display.html_safe %>
                       </div>
                     <% end %>
-                  <% end %>
                 </td>
               <% end %>
             </tr>

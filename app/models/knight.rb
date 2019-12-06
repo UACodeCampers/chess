@@ -13,4 +13,12 @@ class Knight < Piece
             return self.invalid_move(new_x, new_y)
         end 
     end
+
+    def display
+        if self.color == "black"
+            return "&#x265E;"
+        else 
+            return "&#x2658;" 
+        end
+    end
 end
