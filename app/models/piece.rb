@@ -9,6 +9,7 @@ class Piece < ApplicationRecord
   attr_reader :captured
 
   def occupied?(x, y)
+    self.game.pieces.where(x_position: x, y_position: y).present?
     game.pieces.where(x_position: x, y_position: y).present?
   end
 
@@ -116,7 +117,7 @@ class Piece < ApplicationRecord
     return self.obstruction_query(distance, new_x, new_y)
   end
 
-   def move_to!(new_x, new_y)
+  def move_to!(new_x, new_y)
     @game = game
     if occupied?(new_x, new_y)
       @piece_at_destination = @game.pieces.find_by(x_position: new_x, y_position: new_y)
@@ -128,6 +129,25 @@ class Piece < ApplicationRecord
         @captured = true
       end
     else @captured = false
+    end
+  end
+
+  def transmogrify
+    case self.piece_type 
+    when "Pawn"
+      return Pawn.find(self.id)
+    when "Rook"
+      return Rook.find(self.id)
+    when "Bishop"
+      return Bishop.find(self.id)
+    when "Knight"
+      return Knight.find(self.id)
+    when "Queen"
+      return Queen.find(self.id)
+    when "King"
+      return King.find(self.id)
+    else
+      fail "Piece had no type"
     end
   end
 
