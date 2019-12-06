@@ -16,6 +16,7 @@ class GamesController < ApplicationController
     @game.black_player_id = current_user.id
     @game.save
     redirect_to game_path(@game)
+
   end
 
   def create
@@ -27,7 +28,9 @@ class GamesController < ApplicationController
     @game = Game.where
   end
 
-#private 
+  # def invalid_move(new_x, new_y)
+  #   render :json => {message:"#{self.piece_type} can't move to (#{new_x}, #{new_y})"}, :status => :internal_server_error 
+  # end 
 
 #def game
 # @game || Game.where(id: params[:id]).last

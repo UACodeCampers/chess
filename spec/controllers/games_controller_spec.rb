@@ -35,5 +35,4 @@ RSpec.describe GamesController, type: :controller do
       expect(game.black_player_id).to eq user.id
     end
   end
-  
 end
