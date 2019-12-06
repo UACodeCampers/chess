@@ -27,11 +27,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.where
   end
-
-  # def invalid_move(new_x, new_y)
-  #   render :json => {message:"#{self.piece_type} can't move to (#{new_x}, #{new_y})"}, :status => :internal_server_error 
-  # end 
-
+  
 #def game
 # @game || Game.where(id: params[:id]).last
 #end

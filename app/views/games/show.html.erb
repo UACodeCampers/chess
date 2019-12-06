@@ -106,17 +106,5 @@ table tr:nth-child(even) td:nth-child(odd) {
     </tr>
 </table>
 
-<script>
-  $(function () {  
-    $('td').droppable();
-    $('.piece').draggable({
-        containment: "table",
-        stop: function(e, ui) {
-            var xPos = $(ui).attr("data-x-coord");
-            console.log(xPos);
-        }
-      });
-  });    
-</script>
 </body>
 </html>
