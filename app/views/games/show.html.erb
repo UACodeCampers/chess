@@ -20,5 +20,46 @@
         </tbody>
       </table>
     </div>
+    <script>
+  
+      $(document).ready(function() {
+          $('.piece').draggable({
+              containment: "table",
+              revert: 'invalid'
+          });
+  
+          $('.droppable').droppable({
+              drop: function(event, ui) {
+                  var piece = ui.draggable;
+                  var destination_square = $(this);
+                  console.log($(this));
+                  var update_piece = {
+                      id: piece.data('piece-id'),
+                      x_position: destination_square.data('x_coord'),
+                      y_position: destination_square.data('y_coord'),
+                  }
+  
+                  $.ajax({
+                      type: 'PATCH',
+                      url: '/pieces/' + update_piece.id,
+                      beforeSend: function(xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
+                      dataType: 'json',
+                      data: { id: update_piece.id, x_position: update_piece.x_coord, y_position: update_piece.y_coord },
+                      success: function(data) {
+                          if (data.success) {
+                              //will need to reset piece position (relative, left, top)
+                              //query to move the div the piece is in
+                              piece.detach().appendTo(destination_square.parent());
+                              console.log(data);
+                          } else {
+                              //reset style style position relative, left, top
+                          }
+                      }
+                  });
+              }
+          });
+      });      
+    </script>      
+
   </body>
 </html>
