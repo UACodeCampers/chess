@@ -12,24 +12,6 @@ class Piece < ApplicationRecord
     game.pieces.where(x_position: x, y_position: y).present?
   end
 
-  def move_to!(new_x, new_y)
-
-    # may need to be changed to account for being called in controller
-    if Piece.exists?(
-      x_position: new_x,
-      y_position: new_y,
-      color: ['color = ?', 'black', 'color = ?', 'white']
-    )
-      # may need to be changed to account for being called in controller
-      piece = Piece.find_by(x_position: new_x, y_position: new_y)
-      return self.invalid_move(new_x, new_y) if piece.color == self.color
-      piece.update("captured?" => true)
-     
-    end
-  # may need to be changed to account for being called in controller  
-  return self.update("x_position" => new_x, "y_position" => new_y)
-  end
-
   def invalid_move(new_x, new_y)
     return "#{self.piece_type} can't move to (#{new_x}, #{new_y})" # replaced later with javascript alert 
   end 
