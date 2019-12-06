@@ -1,10 +1,5 @@
 @import "bootstrap";
 
-// Commenting out because it's affecting all divs globally
-// div { 
-//     display: flex; 
-// }
-
 body {
 	background-image:url(checkered-lite.jpg);
 	background-size: 75%;
@@ -23,7 +18,7 @@ body {
 	font-weight: 200;
 }
 
-.bg-img {
+.header {
 	background-image:url(nav-bg.png);
 	min-height: 180px;
 
@@ -34,20 +29,11 @@ body {
 
 	/* Needed to position the navbar */
 	position: relative;
+	display: flex;
+	font-family: 'Calistoga', cursive;
+	justify-content: space-around;
 }
   
-/* Position the navbar container inside the image */
-.container {
-	position: absolute;
-	margin: 20px;
-	font-family: 'Calistoga', cursive;
-}
-
-/* The navbar */
-.topnav {
-	overflow: hidden;
-}
-
 ul {
 	list-style-type: none;
 }
