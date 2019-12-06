@@ -25,4 +25,19 @@ RSpec.describe Piece, type: :model do
 
 
   end 
+
+  describe "occupied?" do
+    let!(:user1) {FactoryBot.create :user}
+    let!(:user2) {FactoryBot.create :user}
+    let!(:game1) {FactoryBot.create :game}
+    let!(:piece1) { game1.pieces.create(x_position: 5, y_position: 7, piece_type: "Pawn", color: "black")}
+    
+    it "should detect whether a piece exists in the move_to space" do
+      expect(piece1.occupied?(5, 7)).to be_truthy
+    end
+    
+    it "should detect when a space is not occupied" do
+      expect(piece1.occupied?(8, 8)).to be_falsey
+    end
+  end
 end
