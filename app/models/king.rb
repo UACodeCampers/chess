@@ -17,13 +17,9 @@ class King < Piece
             game_id: self.game_id,
             captured?: false,
             )
-        catch(:throw_piece) do
             opp_pieces.find_each do |piece|  
-                return true if piece.valid_move?(new_x, new_y)
-                rescue ArgumentError
+                return true if piece.valid_move?(new_x, new_y) rescue nil
             end 
-            throw(:throw_piece)
-        end
     return false
     end
 
