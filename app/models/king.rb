@@ -17,14 +17,14 @@ class King < Piece
             game_id: self.game_id,
             captured?: false,
             )
-        begin 
+        catch(:throw_piece) do
             opp_pieces.find_each do |piece|  
                 return true if piece.valid_move?(new_x, new_y)
-            rescue ArgumentError
-                nil 
+                rescue ArgumentError
             end 
-            return false
-        end 
+            throw(:throw_piece)
+        end
+    return false
     end
         # begin
         #     piece = Piece.find(color: self.color == "white" ? "black" : "white", game_id: self.game_id, captured?: false)
