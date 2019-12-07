@@ -17,8 +17,6 @@ class King < Piece
             game_id: self.game_id,
             captured?: false,
             )
-
-        puts opp_pieces
         begin 
             opp_pieces.find_each do |piece|  
                 begin 
