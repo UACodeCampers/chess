@@ -1,3 +1,4 @@
+require 'byebug'
 class King < Piece
     def valid_move?(new_x, new_y)
         distance = 1 # sets diastance for all king moves
@@ -20,7 +21,7 @@ class King < Piece
             opp_pieces.find_each do |piece|  
                 return true if piece.valid_move?(new_x, new_y) rescue nil
             end 
-    return false
+        return false
     end
 
     def display
