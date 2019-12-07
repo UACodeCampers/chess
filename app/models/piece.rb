@@ -104,4 +104,8 @@ class Piece < ApplicationRecord
     end
   end
 
+  def white_pieces
+    Piece.where(color: self.color == "white" ? "black" : "white", game_id: self.game_id, captured?: false)
+  end 
+
 end
