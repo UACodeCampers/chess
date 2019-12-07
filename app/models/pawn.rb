@@ -1,19 +1,37 @@
 class Pawn < Piece
     def valid_move?(new_x, new_y)   
+        return self.invalid_move(new_x, new_y) if new_y > 8 || new_y < 1 
+        return self.invalid_move(new_x, new_y) if new_x > 8 || new_x < 1 
+        self.x_position == self.starting_position_x && self.y_position == self.starting_position_y ? distance = 2 : distance = 1 
         if self.color == "white"
-            # checks if pawn is on starting position returns distance 
-            self.x_position == self.starting_position_x && self.y_position == self.starting_position_y ? distance = 2 : distance = 1 
-        # checks if y_position is increasing or decreasing by more than 1
-            return self.invalid_move(new_x, new_y) if new_y > 8 || new_y < 1
             return self.invalid_move(new_x, new_y) if new_y > self.y_position + distance || new_y < self.y_position
-        # if distance is valid checks if pawn is obstructedS
-            return self.is_obstructed?(new_x, new_y)
+                if Piece.exists?(
+                    x_position: new_x, 
+                    y_position: new_y, 
+                    game_id: self.game_id, 
+                ) 
+                    piece = Piece.find_by(x_position: new_x, y_position: new_y, game_id: self.game_id)
+                    return self.invalid_move(new_x, new_y) if piece.color == self.color
+                    return self.invalid_move(new_x, new_y) if piece.x_position == self.x_position
+                    return true if (new_x - self.x_position).abs && (new_y - self.y_position).abs == 1
+                end 
+            return self.invalid_move(new_x, new_y) if new_x != self.x_position
+            return true 
         elsif self.color == "black"
-            self.x_position == self.starting_position_x && self.y_position == self.starting_position_y ? distance = 2 : distance = 1
-            return self.invalid_move(new_x, new_y) if new_y > 8 || new_y < 1 
             return self.invalid_move(new_x, new_y) if new_y < self.y_position - distance || new_y > self.y_position
-            return self.is_obstructed?(new_x, new_y)
-        end 
+                if Piece.exists?(
+                    x_position: new_x, 
+                    y_position: new_y, 
+                    game_id: self.game_id, 
+                ) 
+                    piece = Piece.find_by(x_position: new_x, y_position: new_y, game_id: self.game_id)
+                    return self.invalid_move(new_x, new_y) if piece.color == self.color
+                    return self.invalid_move(new_x, new_y) if piece.x_position == self.x_position
+                    return true if (new_x - self.x_position).abs && (new_y - self.y_position).abs == 1
+                end 
+            return self.invalid_move(new_x, new_y) if new_x != self.x_position
+            return true 
+        end    
     end
 
     def display
