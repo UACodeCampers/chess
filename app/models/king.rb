@@ -26,12 +26,6 @@ class King < Piece
         end
     return false
     end
-        # begin
-        #     piece = Piece.find(color: self.color == "white" ? "black" : "white", game_id: self.game_id, captured?: false)
-        #     # return self.invalid_move(new_x, new_y) if piece.valid_move?(new_x, new_y)
-        # rescue ArgumentError
-        #     puts piece
-        # end
 
     def display
         if self.color == "black"
