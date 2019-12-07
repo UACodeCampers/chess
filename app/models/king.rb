@@ -7,8 +7,9 @@ class King < Piece
         return self.invalid_move(new_x, new_y) if new_x > self.x_position + distance || new_x < self.x_position - distance 
         return self.invalid_move(new_x, new_y) if new_y > self.y_position + distance || new_y < self.y_position - distance 
         # if distance is valid checks if king is obstructed
-        return self.is_obstructed?(new_x, new_y)
-    end    
+        return self.invalid_move(new_x, new_y) if self.is_obstructed?(new_x, new_y)
+        return true
+    end      
 
     def display
         if self.color == "black"

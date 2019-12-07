@@ -1,8 +1,8 @@
 class Game < ApplicationRecord
   has_many :pieces
 
-  belongs_to :black_player, class_name: 'User', foreign_key: 'black_player_id'
-  belongs_to :white_player, class_name: 'User', foreign_key: 'white_player_id'
+  belongs_to :black_player, class_name: 'User', foreign_key: 'black_player_id', optional: true 
+  belongs_to :white_player, class_name: 'User', foreign_key: 'white_player_id', optional: true
 
   after_create :populate_game!
   
@@ -19,9 +19,9 @@ class Game < ApplicationRecord
     end
   end
 
-      #Puts pieces in their starting positions after a game is created
+    #Puts pieces in their starting positions after a game is created
     def populate_game!  
-   #WHITE PIECES
+    #WHITE PIECES
       (1..8).each do |x_position|
       Pawn.create(game_id: id, starting_position_x: x_position, starting_position_y: 2, color: "white", piece_type: "Pawn") 
       end
