@@ -19,7 +19,7 @@ class King < Piece
             captured?: false,
             )
             opp_pieces.find_each do |piece|  
-                return true if piece.valid_move?(new_x, new_y) rescue nil
+                return true if piece.valid_move?(new_x, new_y) rescue ArgumentError
             end 
         return false
     end
