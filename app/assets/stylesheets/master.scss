@@ -70,3 +70,11 @@ ul {
 	text-align: center;
 	margin-top: auto;
 }
+
+.piece:hover {
+	cursor: grab;
+}
+
+.piece:active {
+	cursor: grabbing;
+}
