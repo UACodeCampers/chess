@@ -118,18 +118,14 @@ class Piece < ApplicationRecord
   end
 
   def move_to!(new_x, new_y)
-    @game = game
     if occupied?(new_x, new_y)
-      @piece_at_destination = @game.pieces.find_by(x_position: new_x, y_position: new_y)
-      if color == @piece_at_destination.color
-        fail 'destination occupied by piece of same color'
-      else
-        @piece_at_destination.update_attributes(x_position: nil, y_position: nil, status: 'captured')
-        @status = @piece_at_destination.status
-        @captured = true
-      end
-    else @captured = false
+      puts "new_x: #{new_x}, #{new_y}"
+      piece_at_destination = self.game.pieces.find_by(x_position: new_x, y_position: new_y)
+      puts "#{self.color} == #{piece_at_destination.color}"
+      fail 'destination occupied by piece of same color' if self.color == piece_at_destination.color
+      piece_at_destination.update(x_position: nil, y_position: nil, captured?: true)
     end
+    self.update!(x_position: new_x, y_position: new_y)
   end
 
 end
