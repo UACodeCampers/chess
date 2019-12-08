@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_231902) do
     t.integer "black_player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
   end
 
   create_table "pieces", force: :cascade do |t|

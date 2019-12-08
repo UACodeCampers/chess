@@ -50,4 +50,5 @@ RSpec.describe Piece, type: :model do
       expect(piece1.occupied?(8, 8)).to be_falsey
     end
   end
+  
 end

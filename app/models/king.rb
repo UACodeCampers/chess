@@ -1,3 +1,4 @@
+require 'byebug'
 class King < Piece
     def valid_move?(new_x, new_y)
         distance = 1 # sets diastance for all king moves
@@ -7,8 +8,21 @@ class King < Piece
         return self.invalid_move(new_x, new_y) if new_x > self.x_position + distance || new_x < self.x_position - distance 
         return self.invalid_move(new_x, new_y) if new_y > self.y_position + distance || new_y < self.y_position - distance 
         # if distance is valid checks if king is obstructed
-        return self.is_obstructed?(new_x, new_y)
-    end    
+        return self.invalid_move(new_x, new_y) if self.is_obstructed?(new_x, new_y)
+        return true
+    end      
+
+    def check?(new_x, new_y)
+        opp_pieces = Piece.all.where(
+            color: self.color == "white" ? "black" : "white",
+            game_id: self.game_id,
+            captured?: false,
+            )
+            opp_pieces.find_each do |piece|  
+                return true if piece.valid_move?(new_x, new_y) rescue ArgumentError
+            end 
+        return false
+    end
 
     def display
         if self.color == "black"
