@@ -9,6 +9,7 @@ class Piece < ApplicationRecord
   attr_reader :captured
 
   def occupied?(x, y)
+    self.game.pieces.where(x_position: x, y_position: y).present?
     game.pieces.where(x_position: x, y_position: y).present?
   end
 
@@ -89,19 +90,15 @@ class Piece < ApplicationRecord
      return self.obstruction_query(distance, new_x, new_y)
    end
 
-   def move_to!(new_x, new_y)
-    @game = game
+  def move_to!(new_x, new_y)
     if occupied?(new_x, new_y)
-      @piece_at_destination = @game.pieces.find_by(x_position: new_x, y_position: new_y)
-      if color == @piece_at_destination.color
-        fail 'destination occupied by piece of same color'
-      else
-        @piece_at_destination.update_attributes(x_position: nil, y_position: nil, captured?: true)
-        @captured = true
-      end
-    else @captured = false
-      return self.update("x_position" => new_x, "y_position" => new_y)
+      puts "new_x: #{new_x}, #{new_y}"
+      piece_at_destination = self.game.pieces.find_by(x_position: new_x, y_position: new_y)
+      puts "#{self.color} == #{piece_at_destination.color}"
+      fail 'destination occupied by piece of same color' if self.color == piece_at_destination.color
+      piece_at_destination.update(x_position: nil, y_position: nil, captured?: true)
     end
+    self.update!(x_position: new_x, y_position: new_y)
   end
 
   def white_pieces
