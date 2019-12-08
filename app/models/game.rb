@@ -18,7 +18,7 @@ class Game < ApplicationRecord
     kings.find_each do |king| 
       return true if king.check?(king.x_position, king.y_position)
     end 
-    return false 
+    return false
   end 
   
   def contains_piece?(x_coord, y_coord)
