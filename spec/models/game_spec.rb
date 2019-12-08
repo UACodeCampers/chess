@@ -27,5 +27,14 @@ RSpec.describe Game, type: :model do
       expect(game1.check_present?).to be_truthy
     end 
 
+    
+    it "should detect if check is present" do 
+      user1 = User.create(id: 3, name: "David", email: "richardtracy@yahoo.com", password: "123456")
+      game1 = Game.create(id: 4563, name: "Game with tim", white_player_id: user1.id)
+      piece = Piece.create(x_position: 5, y_position: 4, piece_type: "King", color: "white", game_id: 4563, captured?: false)
+      piece2 = Piece.create(x_position: 3, y_position: 3, piece_type: "Knight", color: "black", game_id: 4563, captured?: false)
+      expect(game1.check_present?).to be_truthy
+    end 
+
   end 
 end
