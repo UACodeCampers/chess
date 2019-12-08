@@ -15,7 +15,7 @@ class Piece < ApplicationRecord
 
   def invalid_move(new_x, new_y)
     raise ArgumentError.new("#{self.piece_type} can't move to (#{new_x}, #{new_y})")
-   end 
+  end 
  
    def is_obstructed?(new_x, new_y) 
      if self.piece_type == "Bishop"
@@ -100,9 +100,5 @@ class Piece < ApplicationRecord
     end
     self.update!(x_position: new_x, y_position: new_y)
   end
-
-  def white_pieces
-    Piece.where(color: self.color == "white" ? "black" : "white", game_id: self.game_id, captured?: false)
-  end 
 
 end
