@@ -96,11 +96,11 @@ class Piece < ApplicationRecord
       if color == @piece_at_destination.color
         fail 'destination occupied by piece of same color'
       else
-        @piece_at_destination.update_attributes(x_position: nil, y_position: nil, status: 'captured')
-        @status = @piece_at_destination.status
+        @piece_at_destination.update_attributes(x_position: nil, y_position: nil, captured?: true)
         @captured = true
       end
     else @captured = false
+      return self.update("x_position" => new_x, "y_position" => new_y)
     end
   end
 
