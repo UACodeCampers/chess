@@ -35,8 +35,6 @@ RSpec.describe Piece, type: :model do
       expect(piece.is_obstructed?(4, 4)).to be_falsey
     end 
   end 
-
-<<<<<<< HEAD
   describe "occupied?" do
     let!(:user1) {FactoryBot.create :user}
     let!(:user2) {FactoryBot.create :user}
@@ -52,7 +50,6 @@ RSpec.describe Piece, type: :model do
     end
   end
   
-=======
   describe "self_check?" do 
     it "checks to see if player move puts king in check" do 
       user1 = User.create(id: 3, name: "David", email: "richardtracy@yahoo.com", password: "123456")
@@ -72,6 +69,4 @@ RSpec.describe Piece, type: :model do
       expect(piece.self_check?(2, 4)).to be_falsey
     end 
   end 
-
->>>>>>> finishing self_check? method
 end
