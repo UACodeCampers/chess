@@ -111,7 +111,7 @@ class Piece < ApplicationRecord
     )
       self.update(x_position: new_x, y_position: new_y)
       king.find_each do |king|
-         if king.check?(king.x_position, king.y_position)
+        if king.check?(king.x_position, king.y_position)
           self.update(x_position: x_position, y_position: y_position)
           return true
         end
@@ -119,6 +119,4 @@ class Piece < ApplicationRecord
       self.update(x_position: x_position, y_position: y_position)
     return false
   end 
-
-
 end

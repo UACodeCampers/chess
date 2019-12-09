@@ -36,7 +36,8 @@ RSpec.describe King, type: :model do
     end 
   end 
 
-  describe "check?" do
+  describe "check?" do  
+  
     it "should detect if a King is in check" do 
       user1 = User.create(id: 3, name: "David", email: "richardtracy@yahoo.com", password: "123456")
       game1 = Game.create(id: 4563, name: "Game with tim", white_player_id: user1.id)
@@ -70,6 +71,5 @@ RSpec.describe King, type: :model do
       piece2 = Piece.create(x_position: 4, y_position: 8, piece_type: "Queen", color: "black", game_id: 4563, captured?: "false")
       expect(piece.check?(4, 1)).to be_truthy
     end 
-
   end 
 end
