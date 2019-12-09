@@ -62,11 +62,10 @@ class Piece < ApplicationRecord
        if Game.find(self.game_id).pieces.exists?(
          x_position: x_pos_query,
          y_position: y_pos_query,
-         game_id: self.game_id,
-         color: ['color = ?', 'black', 'color = ?', 'white'], 
+         color: ['color = ?', 'black', 'color = ?', 'white']
        )
  
-         piece = Game.find(self.game_id).pieces.find_by(x_position: x_pos_query, y_position: y_pos_query, game_id: self.game_id)
+         piece = Game.find(self.game_id).pieces.find_by(x_position: x_pos_query, y_position: y_pos_query)
          return false if piece.x_position == new_x && piece.y_position == new_y
          return true
        end
@@ -109,7 +108,7 @@ class Piece < ApplicationRecord
       piece_type: "King"
     )
       self.update(x_position: new_x, y_position: new_y)
-      king.find_each do |king|
+      king.each do |king|
          if king.check?(king.x_position, king.y_position)
           self.update(x_position: old_x_pos, y_position: old_y_pos)
           return true
