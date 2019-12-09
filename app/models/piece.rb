@@ -63,7 +63,7 @@ class Piece < ApplicationRecord
          x_position: x_pos_query,
          y_position: y_pos_query,
          game_id: self.game_id,
-         color: ['color = ?', 'black', 'color = ?', 'white']
+         color: ['color = ?', 'black', 'color = ?', 'white'], 
        )
  
          piece = Piece.find_by(x_position: x_pos_query, y_position: y_pos_query, game_id: self.game_id)
@@ -102,21 +102,22 @@ class Piece < ApplicationRecord
   end
 
   def self_check?(new_x, new_y)
-    x_position = self.x_position
-    y_position = self.y_position
-    king = Piece.where( 
+    old_x_pos = self.x_position
+    old_y_pos = self.y_position
+    king = Game.find(self.game_id).pieces.where( 
       game_id: self.game, 
       color: self.color, 
       piece_type: "King"
     )
       self.update(x_position: new_x, y_position: new_y)
       king.find_each do |king|
-        if king.check?(king.x_position, king.y_position)
-          self.update(x_position: x_position, y_position: y_position)
+         if king.check?(king.x_position, king.y_position)
+          self.update(x_position: old_x_pos, y_position: old_y_pos)
           return true
         end
       end                     
-      self.update(x_position: x_position, y_position: y_position)
+      self.update(x_position: old_x_pos, y_position: old_y_pos)
     return false
   end 
+
 end
