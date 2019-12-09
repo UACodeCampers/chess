@@ -59,14 +59,14 @@ class Piece < ApplicationRecord
          y_pos_query = y_position
        end 
  
-       if Piece.exists?(
+       if Game.find(self.game_id).pieces.exists?(
          x_position: x_pos_query,
          y_position: y_pos_query,
          game_id: self.game_id,
          color: ['color = ?', 'black', 'color = ?', 'white'], 
        )
  
-         piece = Piece.find_by(x_position: x_pos_query, y_position: y_pos_query, game_id: self.game_id)
+         piece = Game.find(self.game_id).pieces.find_by(x_position: x_pos_query, y_position: y_pos_query, game_id: self.game_id)
          return false if piece.x_position == new_x && piece.y_position == new_y
          return true
        end
