@@ -14,7 +14,7 @@ class Game < ApplicationRecord
     kings = pieces.where( 
       piece_type: "King"
     )
-    kings.find_each do |king| 
+    kings.each do |king| 
       return true if king.check?(king.x_position, king.y_position)
     end 
     return false
