@@ -11,7 +11,7 @@ class Game < ApplicationRecord
   end 
 
   def check_present?
-    kings = Game.find(self.id).pieces.where( 
+    kings = pieces.where( 
       piece_type: "King"
     )
     kings.find_each do |king| 
