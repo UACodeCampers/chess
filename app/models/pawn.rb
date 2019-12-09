@@ -2,6 +2,7 @@ class Pawn < Piece
     def valid_move?(new_x, new_y)   
         return self.invalid_move(new_x, new_y) if new_y > 8 || new_y < 1 
         return self.invalid_move(new_x, new_y) if new_x > 8 || new_x < 1 
+        return self.invalid_move(new_x, new_y) if self.self_check?(new_x, new_y)
         self.x_position == self.starting_position_x && self.y_position == self.starting_position_y ? distance = 2 : distance = 1 
         if self.color == "white"
             return self.invalid_move(new_x, new_y) if new_y > self.y_position + distance || new_y < self.y_position

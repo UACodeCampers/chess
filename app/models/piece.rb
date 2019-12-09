@@ -101,4 +101,24 @@ class Piece < ApplicationRecord
     self.update!(x_position: new_x, y_position: new_y)
   end
 
+  def self_check?(new_x, new_y)
+    x_position = self.x_position
+    y_position = self.y_position
+    king = Piece.where( 
+      game_id: self.game, 
+      color: self.color, 
+      piece_type: "King"
+    )
+      self.update(x_position: new_x, y_position: new_y)
+      king.find_each do |king|
+         if king.check?(king.x_position, king.y_position)
+          self.update(x_position: x_position, y_position: y_position)
+          return true
+        end
+      end                     
+      self.update(x_position: x_position, y_position: y_position)
+    return false
+  end 
+
+
 end

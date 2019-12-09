@@ -36,6 +36,7 @@ RSpec.describe Piece, type: :model do
     end 
   end 
 
+<<<<<<< HEAD
   describe "occupied?" do
     let!(:user1) {FactoryBot.create :user}
     let!(:user2) {FactoryBot.create :user}
@@ -51,4 +52,26 @@ RSpec.describe Piece, type: :model do
     end
   end
   
+=======
+  describe "self_check?" do 
+    it "checks to see if player move puts king in check" do 
+      user1 = User.create(id: 3, name: "David", email: "richardtracy@yahoo.com", password: "123456")
+      game1 = Game.create(id: 4563, name: "Game with tim", white_player_id: user1.id)
+      piece = Piece.create(x_position: 1, y_position: 3, piece_type: "King", color: "white", game_id: 4563, captured?: false)
+      piece2 = Piece.create(x_position: 2, y_position: 3, piece_type: "Rook", color: "white", game_id: 4563, captured?: false)
+      piece3 = Piece.create(x_position: 3, y_position: 3, piece_type: "Rook", color: "black", game_id: 4563, captured?: false)
+      expect(piece2.self_check?(2, 5)).to be_truthy
+    end 
+
+    it "checks to see if player move puts king in check" do 
+      user1 = User.create(id: 3, name: "David", email: "richardtracy@yahoo.com", password: "123456")
+      game1 = Game.create(id: 4563, name: "Game with tim", white_player_id: user1.id)
+      piece = Piece.create(x_position: 1, y_position: 3, piece_type: "King", color: "white", game_id: 4563, captured?: false)
+      piece2 = Piece.create(x_position: 2, y_position: 3, piece_type: "Rook", color: "white", game_id: 4563, captured?: false)
+      piece3 = Piece.create(x_position: 3, y_position: 3, piece_type: "Rook", color: "black", game_id: 4563, captured?: false)
+      expect(piece.self_check?(2, 4)).to be_falsey
+    end 
+  end 
+
+>>>>>>> finishing self_check? method
 end
