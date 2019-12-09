@@ -14,7 +14,7 @@ class King < Piece
     end      
 
     def check?(new_x, new_y)
-        opp_pieces = Piece.all.where(
+        opp_pieces = Game.find(self.game_id).pieces.where(
             color: self.color == "white" ? "black" : "white",
             game_id: self.game_id,
             captured?: false,

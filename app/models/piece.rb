@@ -105,7 +105,6 @@ class Piece < ApplicationRecord
     old_x_pos = self.x_position
     old_y_pos = self.y_position
     king = Game.find(self.game_id).pieces.where( 
-      game_id: self.game, 
       color: self.color, 
       piece_type: "King"
     )
