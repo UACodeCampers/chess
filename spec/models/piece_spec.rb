@@ -42,6 +42,7 @@ RSpec.describe Piece, type: :model do
       piece = Piece.create(x_position: 1, y_position: 3, piece_type: "King", color: "white", game_id: 4563, captured?: false)
       piece2 = Piece.create(x_position: 2, y_position: 3, piece_type: "Rook", color: "white", game_id: 4563, captured?: false)
       piece3 = Piece.create(x_position: 3, y_position: 3, piece_type: "Rook", color: "black", game_id: 4563, captured?: false)
+      piece4 = Piece.create(x_position: 7, y_position: 5, piece_type: "King", color: "black", game_id: 4563, captured?: false)
       expect(piece2.self_check?(2, 5)).to be_truthy
     end 
 
