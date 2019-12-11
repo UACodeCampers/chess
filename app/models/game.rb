@@ -6,10 +6,19 @@ class Game < ApplicationRecord
 
   after_create :populate_game!
   
-    def self.available 
-        where(black_player_id: nil).or(where(white_player_id: nil))
-    end 
+  def self.available 
+    where(black_player_id: nil).or(where(white_player_id: nil))
+  end 
 
+  def check_present?
+    kings = pieces.where( 
+      piece_type: "King"
+    )
+    kings.each do |king| 
+      return true if king.check?(king.x_position, king.y_position)
+    end 
+    return false
+  end 
   
   def contains_piece?(x_coord, y_coord)
     if pieces.where("(starting_position_x = ? AND starting_position_y = ?)", x_coord, y_coord).any?

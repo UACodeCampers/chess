@@ -15,7 +15,7 @@ class Piece < ApplicationRecord
 
   def invalid_move(new_x, new_y)
     raise ArgumentError.new("#{self.piece_type} can't move to (#{new_x}, #{new_y})")
-   end 
+  end 
  
    def is_obstructed?(new_x, new_y) 
      if self.piece_type == "Bishop"
@@ -59,14 +59,13 @@ class Piece < ApplicationRecord
          y_pos_query = y_position
        end 
  
-       if Piece.exists?(
+       if Game.find(self.game_id).pieces.exists?(
          x_position: x_pos_query,
          y_position: y_pos_query,
-         game_id: self.game_id,
          color: ['color = ?', 'black', 'color = ?', 'white']
        )
  
-         piece = Piece.find_by(x_position: x_pos_query, y_position: y_pos_query, game_id: self.game_id)
+         piece = Game.find(self.game_id).pieces.find_by(x_position: x_pos_query, y_position: y_pos_query)
          return false if piece.x_position == new_x && piece.y_position == new_y
          return true
        end
@@ -101,8 +100,18 @@ class Piece < ApplicationRecord
     self.update!(x_position: new_x, y_position: new_y)
   end
 
-  def white_pieces
-    Piece.where(color: self.color == "white" ? "black" : "white", game_id: self.game_id, captured?: false)
+  def self_check?(new_x, new_y)
+    old_x_pos = self.x_position
+    old_y_pos = self.y_position
+    king = self.game.pieces.where(color: self.color, piece_type: "King")
+    self.update(x_position: new_x, y_position: new_y)
+    king.each do |king|
+      if king.check?(king.x_position, king.y_position)
+        self.update(x_position: old_x_pos, y_position: old_y_pos)
+        return true
+      end
+    end                     
+    self.update(x_position: old_x_pos, y_position: old_y_pos)
+  return false
   end 
-
 end
