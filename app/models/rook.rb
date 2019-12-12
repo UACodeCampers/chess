@@ -15,4 +15,5 @@ class Rook < Piece
         return "&#x2656;" 
       end
     end
+
 end
